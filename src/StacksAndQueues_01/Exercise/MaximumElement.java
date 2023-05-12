@@ -1,6 +1,7 @@
 package StacksAndQueues_01.Exercise;
 
 import java.util.ArrayDeque;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class MaximumElement {
@@ -21,29 +22,9 @@ public class MaximumElement {
                     elements.pop();
                     break;
                 case "3":
-                    int maximumElement = getMaximumElement(elements);
-                    System.out.println(maximumElement);
+                    System.out.println(Collections.max(elements));
                     break;
             }
         }
-    }
-
-    private static int getMaximumElement(ArrayDeque<Integer> elements) {
-        ArrayDeque<Integer> tempArray = new ArrayDeque<>();
-        int maxElement = elements.pop();
-        tempArray.push(maxElement);
-
-         while (!elements.isEmpty()) {
-             int currDigit = elements.pop();
-             tempArray.push(currDigit);
-
-             if (currDigit > maxElement) {
-                 maxElement = currDigit;
-             }
-         }
-        for (Integer n : tempArray) {
-            elements.push(n);
-        }
-        return maxElement;
     }
 }
