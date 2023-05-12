@@ -1,6 +1,7 @@
 package StacksAndQueues_01.Exercise;
 
 import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ReverseNumbersWithStack {
@@ -8,11 +9,10 @@ public class ReverseNumbersWithStack {
         Scanner sc = new Scanner(System.in);
 
         ArrayDeque<Integer> numbers = new ArrayDeque<>();
-        String[] input = sc.nextLine().split("\\s+");
 
-        for (String n : input) {
-            numbers.push(Integer.valueOf(n));
-        }
+        Arrays.stream(sc.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt)
+                .forEach(numbers::push);
 
         while (!numbers.isEmpty()) {
             System.out.print(numbers.pop() + " ");
